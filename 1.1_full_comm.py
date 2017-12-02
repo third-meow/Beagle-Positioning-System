@@ -43,14 +43,17 @@ class GPS:
                 print "GPS is Initialized"
 
 myGPS=GPS()
-while(1):
-        ser.flushInput()
-        ser.flushInput()
-        while ser.inWaiting()==0:
-                pass
-        NMEA1=ser.readline()
-        while ser.inWaiting()==0:
-                pass
-        NMEA2=ser.readline()
-        print NMEA1
-        print NMEA2
+try:
+	while(1):
+	        ser.flushInput()
+	        ser.flushInput()
+        	while ser.inWaiting()==0:
+        	        pass
+        	NMEA1=ser.readline()
+        	while ser.inWaiting()==0:
+        	        pass
+        	NMEA2=ser.readline()
+        	print NMEA1
+        	print NMEA2
+except KeyboardInterrupt:
+	print('\n\n GoodBye \n')

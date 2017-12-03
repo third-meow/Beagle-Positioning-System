@@ -51,15 +51,15 @@ class GPS:
 			pass
 		self.NMEA2 = ser.readline()	#read second string of data
 
-		self.NEMA1_list = self.NEMA1.split(',')		#split NEMAs into lists
-		self.NEMA2_list = self.NEMA2.split(',')
+		self.NMEA1_list = self.NMEA1.split(',')		#split NEMAs into lists
+		self.NMEA2_list = self.NMEA2.split(',')
 
-		if self.NEMA1_list[0]=='$GPRMC':		#sort NEMA lists into their sentance names
-			self.GPRMC = self.NEMA1_list
-			self.GPGGA = self.NEMA2_list
-		elif self.NEMA1_list[0]=='$GPGGA':
-			self.GPRMC = self.NEMA1_list
-			self.GPGGA = self.NEMA2_list
+		if self.NMEA1_list[0]=='$GPRMC':		#sort NEMA lists into their sentance names
+			self.GPRMC = self.NMEA1_list
+			self.GPGGA = self.NMEA2_list
+		elif self.NMEA1_list[0]=='$GPGGA':
+			self.GPGGA = self.NMEA1_list
+			self.GPRMC = self.NMEA2_list
 		else:
 			print '[ERROR][SENTANCE ERROR]'
 
@@ -85,7 +85,6 @@ try:
                 print 'My Latitude: ',myGPS.latDeg, 'Degrees ', myGPS.latMin,' minutes ', myGPS.latHem
                 print 'My Longitude: ',myGPS.lonDeg, 'Degrees ', myGPS.lonMin,' minutes ', myGPS.lonHem
                 print 'My Speed(in knots): ', myGPS.knots
-                print 'My Altitude: '
-myGPS.altitude
+                print 'My Altitude: ',myGPS.altitude
 except KeyboardInterrupt:
 	print('\n\n GoodBye \n')

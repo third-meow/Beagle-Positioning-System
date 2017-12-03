@@ -80,6 +80,12 @@ class GPS:
 myGPS=GPS()
 try:
 	while(1):
-		pass	#will call read() here
+		myGPS.read()
+                print 'You are Tracking: ',myGPS.sats,' satellites'
+                print 'My Latitude: ',myGPS.latDeg, 'Degrees ', myGPS.latMin,' minutes ', myGPS.latHem
+                print 'My Longitude: ',myGPS.lonDeg, 'Degrees ', myGPS.lonMin,' minutes ', myGPS.lonHem
+                print 'My Speed(in knots): ', myGPS.knots
+                print 'My Altitude: '
+myGPS.altitude
 except KeyboardInterrupt:
 	print('\n\n GoodBye \n')
